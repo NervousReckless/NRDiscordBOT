@@ -21,7 +21,14 @@ module.exports = {
     return interaction.reply({ccontent: `I'm already playing music in <#${guild.me.voice.channelId}>.`, ephemeral: true});
     
     
-    client.distube.play( VoiceChannel, options.getString("query"), { textChannel: channel, member: member });
+    try {
+        client.distube.play( VoiceChannel, options.getString("query"), { textChannel: channel, member: member });
         return interaction.reply({content: "Request recived."});
+    } catch (e) {
+        const errorEmbed = new MessageEmbed()
+        .setColor("RED")
+        .setDescription(`Alert: ${e}`)
+        return interaction.reply({embeds: [errorEmbed]});
+        }
     }
-  }
+}
