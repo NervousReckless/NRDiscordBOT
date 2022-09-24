@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.7.0",
+    "@discordjs/voice": "^0.11.0",
     "@distube/spotify": "^1.4.2",
     "@distube/youtube-dl": "^2.2.4",
     "@distube/yt-dlp": "^1.1.3",
