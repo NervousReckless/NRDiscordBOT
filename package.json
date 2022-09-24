@@ -23,6 +23,7 @@
     "discord.js-collector": "^1.8.9",
     "distube": "^3.3.4",
     "dotenv": "^16.0.2",
+    "ffmpeg": "^0.0.4",
     "ffmpeg-static": "^4.4.1",
     "glob": "^8.0.3",
     "libsodium-wrappers": "^0.7.10",
