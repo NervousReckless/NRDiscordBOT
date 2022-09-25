@@ -1,7 +1,10 @@
 import { default as SpotifyPlugin } from "@distube/spotify";
 import { Client, Collection } from "discord.js";
 import { DisTube } from "distube";
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import eventHandler from "./Handlers/Events";
+import commandHandler from "./Handlers/Commands";
+
 dotenv.config();
 
 const client = new Client({
@@ -19,8 +22,7 @@ client.distube = new DisTube(client, {
 });
 export default client;
 
-require("./Handlers/Events").default(client);
-require("./Handlers/Commands").default(client);
-
+eventHandler.default(client);
+commandHandler.default(client);
 
 client.login(process.env.DISCORD_TOKEN);
