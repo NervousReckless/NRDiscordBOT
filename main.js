@@ -12,7 +12,7 @@ client.commands = new Collection();
 
 client.distube = new DisTube(client, {
     emitNewSongOnly: true,
-    leaveOnFinish: false,
+    leaveOnFinish: true,
     emitAddListWhenCreatingQueue: false,
     plugins: [new SpotifyPlugin()]
 });
