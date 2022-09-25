@@ -15,7 +15,7 @@ module.exports = {
     const VoiceChannel = member.voice.channel;
 
     if(!VoiceChannel)
-    return interaction.reply({content: "You must be in a voice channel to use thuis command.", ephemeral: true});
+    return interaction.reply({content: "You must be in a voice channel to use this command.", ephemeral: true});
 
     if(guild.me.voice.channelId && VoiceChannel.id !== guild.me.voice.channelId)
     return interaction.reply({ccontent: `I'm already playing music in <#${guild.me.voice.channelId}>.`, ephemeral: true});

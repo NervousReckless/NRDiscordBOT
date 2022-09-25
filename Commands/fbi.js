@@ -1,5 +1,5 @@
 const { CommandInteraction, Client, MessageEmbed, VoiceChannel } = require('discord.js');
-const client = require("../main");
+const client = require("../master");
 
 module.exports = {
     name: "fbi",
