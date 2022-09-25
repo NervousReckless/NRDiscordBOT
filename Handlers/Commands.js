@@ -1,14 +1,15 @@
-const { Perms } = require("../Validation/Permission");
-const { Client } = require("discord.js");
-const { promisify } =require("util");
-const { glob } = require("glob");
+import { Perms } from "../Validation/Permission";
+import { Client } from "discord.js";
+import { promisify } from "util";
+import { glob } from "glob";
+import Ascii from "ascii-table";
+
 const PG = promisify(glob);
-const Ascii = require("ascii-table");
 
 /**
  * @param {Client} client
  */
-module.exports = async (client) => {
+export default async (client) => {
     const Table = new Ascii("Command Loaded");
 
     CommandsArray = [];

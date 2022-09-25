@@ -1,17 +1,13 @@
-const { Client } = require("discord.js")
+import { Client } from "discord.js"
 // const mongoose = require("mongoose");
 // const { Database } = require("../../config.json");
 
-module.exports = {
-    name: "ready",
-    once: true,
-    /** 
-     * @param { Client } client 
-     */
-    execute(client) {
-        
-        console.log("Im online!")
-        client.user.setActivity("Czikita!", {type: "WATCHING"})
+export const name = "ready"
+export const once = true
+export function execute(client) {
+
+    console.log("Im online!")
+    client.user.setActivity("Czikita!", { type: "WATCHING" })
 
     //     if(!Database) return;
     //     mongoose.connect(Database,{
@@ -22,5 +18,4 @@ module.exports = {
     //     }).catch((err) => {
     //         console.log(err)
     //     });
-     }
 }

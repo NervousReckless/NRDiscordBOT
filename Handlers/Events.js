@@ -1,10 +1,11 @@
-const { Events } = require("../Validation/EventNames");
-const { promisify } = require("util");
-const { glob } = require("glob");
-const PG = promisify(glob);
-const Ascii = require("ascii-table");
+import { Events } from "../Validation/EventNames";
+import { promisify } from "util";
+import { glob } from "glob";
+import Ascii from "ascii-table";
 
-module.exports = async (client) => {
+const PG = promisify(glob);
+
+export default async (client) => {
     const Table = new Ascii("Events Loaded");
 
     (await PG(`${process.cwd().replace(/\\/g, '/')}/Events/*.js`)).map(async (file) => {

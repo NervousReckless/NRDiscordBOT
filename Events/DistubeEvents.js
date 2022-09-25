@@ -1,8 +1,8 @@
-const client = require("../main");
-const { MessageEmbed } = require("discord.js");
+import { distube } from "../main";
+import { MessageEmbed } from "discord.js";
 
 const status = queue => `Volume: \`${queue.volume}%\` | Filter: \`${queue.filters.join(', ') || 'Off'}\` | Loop: \`${queue.repeatMode ? (queue.repeatMode === 2 ? 'All Queue' : 'This Song') : 'Off'}\` | Autoplay: \`${queue.autoplay ? 'On' : 'Off'}\``
-client.distube
+distube
   .on('playSong', (queue, song) =>
     queue.textChannel.send({embeds: [new MessageEmbed()
     .setColor("GREEN")

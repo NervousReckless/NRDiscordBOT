@@ -1,14 +1,8 @@
-const { CommandInteraction } = require("discord.js");
+import { CommandInteraction } from "discord.js";
 
-module.exports = {
-    name: "ping",
-    description: "Ping",
-    permission: "ADMINISTRATOR",
-    /**
-     * 
-     * @param {CommandInteraction} interaction
-     */
-    execute(interaction) {
-        interaction.reply({content: "Pong!"})
-    }
+export const name = "ping";
+export const description = "Ping";
+export const permission = "ADMINISTRATOR";
+export function execute(interaction) {
+    interaction.reply({ content: "Pong!" });
 }

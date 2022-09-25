@@ -1,13 +1,11 @@
-const { MessageEmbed, Message } = require("discord.js");
+import { MessageEmbed, Message } from "discord.js";
 
 
-module.exports = {
-    name: "help",
-    description: "Shows all available commands.",
-    
-    execute( Interaction ) {
+export const name = "help";
+export const description = "Shows all available commands.";
+export function execute(Interaction) {
 
-        const helper = new MessageEmbed()
+    const helper = new MessageEmbed()
         .setTitle("Commands")
         .setColor("GREEN")
         .setDescription(`📄   /help - Shows all commands.\n
@@ -17,9 +15,8 @@ module.exports = {
         📩   /suggest - Creates vote or event \n
         ▶️   /music play - play music from url or search from name\n
         📶   /music volume - set music volume to selected %\n
-        🔣   /music settings - shows music commands as pause, resume etc`)
-    
+        🔣   /music settings - shows music commands as pause, resume etc`);
 
-        Interaction.reply({embeds: [helper]})
-    }    
+
+    Interaction.reply({ embeds: [helper] });
 }

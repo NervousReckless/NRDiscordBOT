@@ -1,7 +1,8 @@
-const { default: SpotifyPlugin } = require("@distube/spotify");
-const { Client, Collection } = require("discord.js");
-const { DisTube } = require("distube");
-require('dotenv').config();
+import { default as SpotifyPlugin } from "@distube/spotify";
+import { Client, Collection } from "discord.js";
+import { DisTube } from "distube";
+import dotenv from 'dotenv'
+dotenv.config();
 
 const client = new Client({
   intents: ["GUILDS", "GUILD_MESSAGES", "DIRECT_MESSAGES", "GUILD_VOICE_STATES"],
@@ -16,10 +17,10 @@ client.distube = new DisTube(client, {
     emitAddListWhenCreatingQueue: false,
     plugins: [new SpotifyPlugin()]
 });
-module.exports = client;
+export default client;
 
-require("./Handlers/Events")(client);
-require("./Handlers/Commands")(client);
+require("./Handlers/Events").default(client);
+require("./Handlers/Commands").default(client);
 
 
 client.login(process.env.DISCORD_TOKEN);

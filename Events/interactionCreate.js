@@ -1,27 +1,29 @@
-const { CommandInteraction, Client, MessageEmbed } = require("discord.js");
+import { CommandInteraction, Client, MessageEmbed } from "discord.js";
 
 
-module.exports = {
-    name: "interactionCreate",
+export const name = "interactionCreate";
+export
     /**
-     * 
+     *
      * @param {CommandInteraction} interaction
      * @param {Client} client
      */
-    async execute(interaction, client) {
-        if(interaction.isCommand()) {
-            const command = client.commands.get(interaction.commandName);
-            if(!command) return interaction.reply({embeds: [
-                new MessageEmbed()
-                .setColor("RED")
-                .setDescription("An error occured while running this command.")
-            ]}) && client.commands.delete(interaction.commandName);
-            
-            if (command.permissions && !interaction.member.permissions.has(command.permissions)) {
-                return interaction.reply({ content: `You do not have permission to use: \"${interaction.commandName}".`, ephemeral: true })
-            }
+    async function execute(interaction, client) {
+    if (interaction.isCommand()) {
+        const command = client.commands.get(interaction.commandName);
+        if (!command)
+            return interaction.reply({
+                embeds: [
+                    new MessageEmbed()
+                        .setColor("RED")
+                        .setDescription("An error occured while running this command.")
+                ]
+            }) && client.commands.delete(interaction.commandName);
 
-            command.execute(interaction, client)
+        if (command.permissions && !interaction.member.permissions.has(command.permissions)) {
+            return interaction.reply({ content: `You do not have permission to use: \"${interaction.commandName}".`, ephemeral: true });
         }
+
+        command.execute(interaction, client);
     }
 }
